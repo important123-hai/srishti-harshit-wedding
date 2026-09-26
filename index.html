@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#11100f">
+<title>Srishti & Harshit — A Royal Beginning</title>
+
+<!-- Royal serif + elegant script-like font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#d9ad5b;
+  --gold-light:#f4d99b;
+  --cream:#f8f0df;
+  --ink:#17120f;
+  --wine:#3b1f24;
+  --sand:#b98251;
+  --glass:rgba(20,15,12,.56);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#0d0b0a;
+  color:var(--cream);
+  font-family:Montserrat,Arial,sans-serif;
+  overflow-x:hidden;
+}
+button,a{font:inherit}
+button{cursor:pointer}
+.section{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.content{
+  width:min(920px,90vw);
+  text-align:center;
+  position:relative;
+  z-index:4;
+}
+.eyebrow{
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font-size:.7rem;
+  color:var(--gold-light);
+}
+h1,h2,h3{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:500;
+  margin:.25em 0;
+}
+h1{font-size:clamp(3.4rem,11vw,8rem);line-height:.8}
+h2{font-size:clamp(2.5rem,7vw,5rem)}
+p{line-height:1.8}
+.script{font-family:"Great Vibes",cursive;color:var(--gold-light)}
+.gold{color:var(--gold-light)}
+.small{font-size:.8rem;opacity:.78;letter-spacing:.08em}
+
+/* ---------- PRELOADER ---------- */
+#preloader{
+  position:fixed;inset:0;background:#080706;z-index:1000;
+  display:grid;place-items:center;
+  transition:opacity 1s ease, visibility 1s ease;
+}
+#preloader.hide{opacity:0;visibility:hidden}
+.seal{
+  width:96px;height:96px;border:1px solid var(--gold);
+  border-radius:50%;display:grid;place-items:center;
+  color:var(--gold-light);font-family:"Cormorant Garamond",serif;
+  font-size:2rem;animation:pulse 2s infinite;
+}
+@keyframes pulse{50%{transform:scale(1.06);box-shadow:0 0 45px rgba(217,173,91,.2)}}
+
+/* ---------- HERO / FORT ---------- */
+#hero{
+  min-height:100svh;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(236,180,75,.22),transparent 35%),
+    linear-gradient(180deg,#164f6b 0%,#2f6d79 35%,#8f6549 70%,#24150f 100%);
+}
+.fort{
+  position:absolute;inset:auto 0 0;
+  height:58%;
+  background:
+    linear-gradient(180deg,transparent 0 28%,rgba(25,15,10,.2)),
+    linear-gradient(90deg,transparent 0 8%,#8f633f 8% 92%,transparent 92%);
+  clip-path:polygon(5% 100%,5% 38%,15% 38%,15% 23%,23% 23%,23% 36%,33% 36%,33% 16%,42% 16%,42% 36%,58% 36%,58% 16%,67% 16%,67% 36%,77% 36%,77% 23%,85% 23%,85% 38%,95% 38%,95% 100%);
+  opacity:.9;
+}
+.fort::after{
+  content:"";
+  position:absolute;left:43%;right:43%;bottom:0;height:43%;
+  background:#24150f;
+  border-radius:120px 120px 0 0;
+}
+.lantern{
+  position:absolute;width:13px;height:22px;border-radius:50% 50% 45% 45%;
+  background:#ffb52e;box-shadow:0 0 28px 10px rgba(255,170,35,.45);
+  opacity:.8;animation:float 9s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(20vh) rotate(-3deg);opacity:0}
+  15%{opacity:.85} to{transform:translateY(-110vh) rotate(8deg);opacity:0}
+}
+.hero-copy{position:relative;z-index:5;padding-top:6vh}
+.enter-btn,.gold-btn{
+  border:1px solid var(--gold);
+  background:rgba(10,8,7,.55);color:var(--cream);
+  padding:14px 26px;border-radius:999px;
+  letter-spacing:.15em;text-transform:uppercase;font-size:.7rem;
+  transition:.3s;
+}
+.enter-btn:hover,.gold-btn:hover{background:var(--gold);color:#20150d;transform:translateY(-2px)}
+
+/* ---------- DOORS ---------- */
+#doors{
+  position:fixed;inset:0;z-index:900;pointer-events:none;
+}
+.door{
+  position:absolute;top:0;width:50%;height:100%;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(217,173,91,.14),transparent 32%),
+    repeating-linear-gradient(90deg,#24150f 0 28px,#382015 28px 34px);
+  border:12px solid #6e472a;
+  box-shadow:inset 0 0 80px rgba(0,0,0,.8);
+  transition:transform 2s cubic-bezier(.76,0,.24,1);
+}
+.door::before{
+  content:"✦";
+  position:absolute;top:50%;font-size:6rem;color:var(--gold);
+  transform:translateY(-50%);
+}
+.left-door{left:0;transform-origin:left center}
+.left-door::before{right:18px}
+.right-door{right:0;transform-origin:right center}
+.right-door::before{left:18px}
+#doors.open .left-door{transform:perspective(900px) rotateY(-96deg)}
+#doors.open .right-door{transform:perspective(900px) rotateY(96deg)}
+#doors.open{pointer-events:none}
+
+/* ---------- SCRATCH ---------- */
+#scratch{
+  background:
+    radial-gradient(circle at 50% 40%,rgba(217,173,91,.18),transparent 35%),
+    linear-gradient(135deg,#211518,#4c2b27 50%,#16100d);
+}
+.scratch-card{
+  width:min(430px,88vw);height:260px;margin:25px auto;
+  position:relative;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(244,217,155,.6);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+  background:#efe1be;color:#2b1b12;
+}
+.scratch-under{
+  position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+  padding:20px;
+}
+.scratch-under h3{font-size:2.8rem;margin:0}
+#scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.scratch-hint{margin-top:12px;color:#f3d99b}
+
+/* ---------- EVENTS ---------- */
+#events{
+  background:
+    linear-gradient(rgba(25,14,10,.65),rgba(25,14,10,.9)),
+    radial-gradient(circle at 50% 10%,#9b673f,#1c100c 60%);
+}
+.events-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px;
+}
+.event{
+  padding:24px 12px;border:1px solid rgba(217,173,91,.45);
+  background:rgba(0,0,0,.2);backdrop-filter:blur(5px);
+  transition:.35s;
+}
+.event:hover{transform:translateY(-8px);background:rgba(217,173,91,.1)}
+.event .num{font-family:"Cormorant Garamond";font-size:2rem;color:var(--gold-light)}
+.event h3{font-size:1.6rem}
+.event p{font-size:.72rem;opacity:.78}
+
+/* ---------- DOCTOR DETAIL ---------- */
+#story{
+  background:linear-gradient(180deg,#171114,#302018);
+}
+.ecg{
+  width:min(780px,90vw);height:90px;margin:20px auto;
+}
+.ecg path{
+  fill:none;stroke:var(--gold-light);stroke-width:2;
+  stroke-dasharray:900;stroke-dashoffset:900;
+  animation:draw 3.5s ease forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- FINALE ---------- */
+#finale{
+  background:
+    radial-gradient(circle at 50% 35%,rgba(255,188,65,.2),transparent 28%),
+    linear-gradient(180deg,#0c2431,#0f0b09 75%);
+}
+.final-names{font-size:clamp(4rem,12vw,8rem)}
+.divider{width:100px;height:1px;background:var(--gold);margin:25px auto}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+a.gold-btn{text-decoration:none;display:inline-block}
+
+/* ---------- MUSIC ---------- */
+#musicToggle{
+  position:fixed;right:18px;bottom:18px;z-index:800;
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(10,8,7,.75);
+  color:var(--gold-light);font-size:1rem;
+}
+.music-note{display:inline-block;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(35px);transition:1s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:720px){
+  .events-grid{grid-template-columns:1fr 1fr}
+  .event{padding:18px 8px}
+  .event h3{font-size:1.35rem}
+  .fort{height:48%}
+}
+@media(max-width:480px){
+  .events-grid{grid-template-columns:1fr 1fr}
+  h2{font-size:2.8rem}
+  .scratch-card{height:230px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="preloader">
+  <div>
+    <div class="seal">S ♥ H</div>
+    <p class="small" style="text-align:center;margin-top:20px">A ROYAL BEGINNING</p>
+  </div>
+</div>
+
+<!-- GRAND FORT DOORS -->
+<div id="doors">
+  <div class="door left-door"></div>
+  <div class="door right-door"></div>
+</div>
+
+<!-- MUSIC: Put your MP3 at assets/music.mp3 -->
+<audio id="music" loop preload="auto">
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" aria-label="Toggle music"><span class="music-note">♫</span></button>
+
+<main>
+
+<section id="hero" class="section">
+  <!-- Optional: replace the CSS fort with a real Tijara Fort image -->
+  <div class="fort"></div>
+
+  <script>
+    // Floating lanterns
+    document.addEventListener("DOMContentLoaded",()=>{
+      const hero=document.querySelector("#hero");
+      for(let i=0;i<26;i++){
+        const l=document.createElement("span");
+        l.className="lantern";
+        l.style.left=(Math.random()*100)+"%";
+        l.style.bottom=(-10-Math.random()*30)+"vh";
+        l.style.animationDelay=(Math.random()*8)+"s";
+        l.style.animationDuration=(7+Math.random()*7)+"s";
+        hero.appendChild(l);
+      }
+    });
+  </script>
+
+  <div class="content hero-copy reveal">
+    <div class="eyebrow">A Royal Wedding Invitation</div>
+    <div class="script" style="font-size:3rem;margin-top:20px">Welcome to our</div>
+    <h1>Tijara<br>Story</h1>
+    <p class="small">WHERE TWO HEARTS MEET • AND A NEW CHAPTER BEGINS</p>
+    <button class="enter-btn" id="enterBtn">Enter the Celebration</button>
+  </div>
+</section>
+
+<section id="story" class="section">
+  <div class="content reveal">
+    <div class="eyebrow">Two Healers • One Heartbeat • One Forever</div>
+    <h2>When two paths met,<br><span class="script">forever began.</span></h2>
+
+    <svg class="ecg" viewBox="0 0 800 90" aria-hidden="true">
+      <path d="M0 48 H160 L190 48 L210 47 L225 20 L240 72 L258 10 L275 48 H360
+               C390 48 410 48 430 48 L450 48 L470 47 L485 30 L500 65 L518 48 H800"/>
+    </svg>
+
+    <p>
+      Two doctors, two journeys, one beautiful story —
+      now celebrated beneath the timeless walls of Tijara Fort.
+    </p>
+  </div>
+</section>
+
+<section id="scratch" class="section">
+  <div class="content reveal">
+    <div class="eyebrow">A Secret Awaits</div>
+    <h2>Scratch to reveal<br><span class="script">the date</span></h2>
+
+    <div class="scratch-card">
+      <div class="scratch-under">
+        <div>
+          <div class="eyebrow" style="color:#9b7137">Save the Date</div>
+          <h3>[WEDDING DATE]</h3>
+          <p style="margin:0">Tijara Fort Palace</p>
+        </div>
+      </div>
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+
+    <p class="scratch-hint">Use your finger on phone/tablet or your mouse on laptop.</p>
+  </div>
+</section>
+
+<section id="events" class="section">
+  <div class="content reveal">
+    <div class="eyebrow">The Royal Celebrations</div>
+    <h2>Four moments.<br><span class="script">One unforgettable journey.</span></h2>
+
+    <div class="events-grid">
+      <article class="event">
+        <div class="num">01</div>
+        <h3>Haldi</h3>
+        <p>[DATE] · [TIME]<br>[LOCATION]</p>
+      </article>
+      <article class="event">
+        <div class="num">02</div>
+        <h3>Mehendi</h3>
+        <p>[DATE] · [TIME]<br>[LOCATION]</p>
+      </article>
+      <article class="event">
+        <div class="num">03</div>
+        <h3>Sangeet</h3>
+        <p>[DATE] · [TIME]<br>[LOCATION]</p>
+      </article>
+      <article class="event">
+        <div class="num">04</div>
+        <h3>Wedding</h3>
+        <p>[DATE] · [TIME]<br>Tijara Fort</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:linear-gradient(180deg,#17100d,#4b3020)">
+  <div class="content reveal">
+    <div class="eyebrow">A Royal Evening</div>
+    <h2>As the sun sets,<br><span class="script">a new forever rises.</span></h2>
+    <p>
+      Lanterns in the sky. Music in the air.
+      And two families coming together under the stars.
+    </p>
+    <div style="font-size:4rem;color:var(--gold-light)">✦</div>
+  </div>
+</section>
+
+<section id="finale" class="section">
+  <div class="content reveal">
+    <div class="eyebrow">With love and blessings</div>
+    <div class="script" style="font-size:3.5rem">Together with their families</div>
+    <div class="final-names">
+      Srishti<br>
+      <span class="script" style="font-size:.55em">♥</span><br>
+      Harshit
+    </div>
+    <div class="divider"></div>
+    <p class="small">[WEDDING DATE] · TIJARA FORT PALACE</p>
+
+    <p style="max-width:600px;margin:25px auto">
+      Your presence will make our celebration complete.
+      We cannot wait to celebrate with you.
+    </p>
+
+    <div class="cta-row">
+      <!-- Replace # with your Google Maps / RSVP URLs -->
+      <a class="gold-btn" href="#" target="_blank">📍 View Location</a>
+      <a class="gold-btn" href="#" target="_blank">✉ RSVP</a>
+    </div>
+
+    <p class="small" style="margin-top:40px">WE'LL SEE YOU BEYOND THE ROYAL GATES</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* -------------------------------
+   PRELOADER + GRAND DOOR OPENING
+-------------------------------- */
+window.addEventListener("load",()=>{
+  setTimeout(()=>document.querySelector("#preloader").classList.add("hide"),900);
+});
+
+const doors=document.getElementById("doors");
+const enterBtn=document.getElementById("enterBtn");
+const music=document.getElementById("music");
+const musicToggle=document.getElementById("musicToggle");
+
+function openDoors(){
+  doors.classList.add("open");
+  // Browser autoplay rules normally allow audio after a user click.
+  music.volume=.32;
+  music.play().catch(()=>{});
+  window.scrollTo({top:0,behavior:"instant"});
+}
+enterBtn.addEventListener("click",openDoors);
+
+musicToggle.addEventListener("click",()=>{
+  if(music.paused){
+    music.play().catch(()=>{});
+    musicToggle.style.opacity="1";
+  }else{
+    music.pause();
+    musicToggle.style.opacity=".55";
+  }
+});
+
+/* -------------------------------
+   SCRATCH CARD
+-------------------------------- */
+const canvas=document.getElementById("scratchCanvas");
+const card=document.querySelector(".scratch-card");
+const ctx=canvas.getContext("2d");
+let scratching=false;
+let scratched=0;
+
+function setupScratch(){
+  const r=card.getBoundingClientRect();
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=r.width*dpr;
+  canvas.height=r.height*dpr;
+  canvas.style.width=r.width+"px";
+  canvas.style.height=r.height+"px";
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+
+  // Royal gold foil
+  const g=ctx.createLinearGradient(0,0,r.width,r.height);
+  g.addColorStop(0,"#b98432");
+  g.addColorStop(.35,"#f2d58b");
+  g.addColorStop(.55,"#9d6a26");
+  g.addColorStop(1,"#e2bd68");
+  ctx.fillStyle=g;
+  ctx.fillRect(0,0,r.width,r.height);
+
+  ctx.fillStyle="rgba(45,25,12,.85)";
+  ctx.font="600 14px Montserrat";
+  ctx.textAlign="center";
+  ctx.fillText("SCRATCH THE ROYAL SEAL",r.width/2,r.height/2+5);
+
+  ctx.globalCompositeOperation="destination-out";
+}
+
+function scratch(e){
+  if(!scratching)return;
+  const r=canvas.getBoundingClientRect();
+  const point=e.touches?e.touches[0]:e;
+  const x=point.clientX-r.left, y=point.clientY-r.top;
+  ctx.beginPath();
+  ctx.arc(x,y,23,0,Math.PI*2);
+  ctx.fill();
+  scratched++;
+
+  if(scratched%25===0) checkScratch();
+}
+function checkScratch(){
+  // Approximate reveal based on scratch strokes.
+  if(scratched>160){
+    canvas.style.opacity=".35";
+    setTimeout(()=>canvas.style.opacity="0",400);
+  }
+}
+canvas.addEventListener("pointerdown",e=>{scratching=true;scratch(e)});
+canvas.addEventListener("pointermove",scratch);
+window.addEventListener("pointerup",()=>scratching=false);
+canvas.addEventListener("touchstart",e=>{scratching=true;scratch(e)},{passive:true});
+canvas.addEventListener("touchmove",scratch,{passive:true});
+window.addEventListener("touchend",()=>scratching=false);
+window.addEventListener("resize",setupScratch);
+
+/* -------------------------------
+   SCROLL REVEAL
+-------------------------------- */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+},{threshold:.16});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+setTimeout(setupScratch,500);
+</script>
+</body>
+</html>
